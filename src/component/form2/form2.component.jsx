@@ -38,7 +38,7 @@ const Form2 = ({ history }) => {
     min_Z,
   } = step1;
   return (
-    <div className="form1">
+    <div className="form2">
       <form onSubmit={handleSubmit}>
         <FormInput
           name="name"
