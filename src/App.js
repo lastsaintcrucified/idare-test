@@ -1,10 +1,16 @@
 import "./App.css";
+import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/homepage/hompage.component.jsx";
+import Form2 from "./component/form2/form2.component.jsx";
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <h1>ABC</h1>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/form2" component={Form2} />
+      </Switch>
     </div>
   );
 }

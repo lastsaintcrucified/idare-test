@@ -1,0 +1,16 @@
+.form2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  @media screen and (max-width: 813px) {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+}
