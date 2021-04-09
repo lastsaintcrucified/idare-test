@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import CustomButton from "../../shared/customButton/custom-button.component.jsx";
 import { withRouter } from "react-router-dom";
 import FormInput from "../../shared/formInput/form-input.component.jsx";
+import { connect } from "react-redux";
 
 import "./form1.styles.scss";
+import { fetchData } from "../../redux/project/project.action.js";
 
-const Form1 = ({ history }) => {
+const Form1 = ({ history, fetchData }) => {
   const [step1, setStep1] = useState({
     name: "",
     description: "",
@@ -20,6 +22,8 @@ const Form1 = ({ history }) => {
     setStep1({ ...step1, [name]: value });
   };
   const handleClick = () => {
+    console.log("data ->", step1);
+    fetchData(step1);
     history.push("/form2");
   };
   const { name, description, client, contractor } = step1;
@@ -63,4 +67,9 @@ const Form1 = ({ history }) => {
   );
 };
 
-export default withRouter(Form1);
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: ({ name, description, client, contractor }) =>
+    dispatch(fetchData({ name, description, client, contractor })),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Form1));

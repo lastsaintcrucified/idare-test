@@ -14,3 +14,19 @@
     width: 90%;
   }
 }
+@mixin btn {
+  border: none;
+  width: 100%;
+  font-family: monospace;
+  border-radius: 5px;
+}
+.upBtn {
+  @include btn();
+
+  background-color: #4b91c9;
+}
+
+.rmBtn {
+  @include btn();
+  background-color: #dd2222;
+}
