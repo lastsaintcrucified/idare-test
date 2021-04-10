@@ -5,9 +5,9 @@ import FormInput from "../../shared/formInput/form-input.component.jsx";
 import { connect } from "react-redux";
 
 import "./form1.styles.scss";
-import { fetchData } from "../../redux/project/project.action.js";
+import { fetchProject } from "../../redux/project/project.action.js";
 
-const Form1 = ({ history, fetchData }) => {
+const Form1 = ({ history, fetchProject }) => {
   const [step1, setStep1] = useState({
     name: "",
     description: "",
@@ -23,7 +23,7 @@ const Form1 = ({ history, fetchData }) => {
   };
   const handleClick = () => {
     console.log("data ->", step1);
-    fetchData(step1);
+    fetchProject(step1);
     history.push("/form2");
   };
   const { name, description, client, contractor } = step1;
@@ -68,8 +68,8 @@ const Form1 = ({ history, fetchData }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchData: ({ name, description, client, contractor }) =>
-    dispatch(fetchData({ name, description, client, contractor })),
+  fetchProject: ({ name, description, client, contractor }) =>
+    dispatch(fetchProject({ name, description, client, contractor })),
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Form1));

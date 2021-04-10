@@ -2,7 +2,13 @@ import React from "react";
 
 import "./form-input.styles.scss";
 
-const FormInput = ({ handleChange, label, textStyle, ...otherProps }) => (
+const FormInput = ({
+  handleChange,
+  label,
+  textStyle,
+  allShrink,
+  ...otherProps
+}) => (
   <div className="group">
     {textStyle === "textArea" ? (
       <textarea
@@ -16,7 +22,11 @@ const FormInput = ({ handleChange, label, textStyle, ...otherProps }) => (
     {label ? (
       <label
         className={`${
-          otherProps.value.length ? "shrink" : ""
+          otherProps.value.length
+            ? "shrink"
+            : allShrink === true
+            ? "shrink"
+            : ""
         } form-input-label`}
       >
         {label}

@@ -1,3 +1,3 @@
 export const projectActionTypes = {
-  FETCH_DATA: "FETCH_DATA",
+  FETCH_PROJECT: "FETCH_PROJECT",
 };

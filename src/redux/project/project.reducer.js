@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 
 export const projectReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case projectActionTypes.FETCH_DATA:
+    case projectActionTypes.FETCH_PROJECT:
       return {
         ...state,
         name: action.payload.name,
