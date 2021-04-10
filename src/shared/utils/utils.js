@@ -28,3 +28,24 @@ export const minMax = (data) => {
 
   return result;
 };
+
+export const chart = (data) => {
+  const chartData = {
+    x_axis: [],
+    y_axis: [],
+  };
+  data.map((dt) => {
+    chartData.x_axis.push(parseInt(dt.data[0]));
+    chartData.y_axis.push(parseFloat(dt.data[1]));
+    return chartData;
+  });
+  return chartData;
+};
+
+export const chartConvert = (data) => {
+  const x = [...data.x_axis];
+  const y = [...data.y_axis];
+  var result = {};
+  x.forEach((key, i) => (result[key] = y[i]));
+  return result;
+};

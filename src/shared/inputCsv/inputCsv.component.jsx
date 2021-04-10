@@ -2,12 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { CSVReader } from "react-papaparse";
 import { fetchData } from "../../redux/data/data.action.js";
-import { convertData, minMax } from "../utils/utils.js";
+import { convertData, minMax, chart } from "../utils/utils.js";
 
 import "./inputCsv.styles.scss";
+import { fetchChart } from "../../redux/chart/chart.action.js";
 
 const buttonRef = React.createRef();
-const InputCsv = ({ fetchData }) => {
+const InputCsv = ({ fetchData, fetchChart }) => {
   const fakeData = {
     max_X: "",
     min_X: "",
@@ -23,6 +24,9 @@ const InputCsv = ({ fetchData }) => {
   };
   const handleOnFileLoad = (data) => {
     const abc = convertData(data);
+    const chartData = chart(data);
+    console.log(chartData);
+    fetchChart(chartData);
     fetchData(minMax(abc));
   };
 
@@ -94,6 +98,7 @@ const InputCsv = ({ fetchData }) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchData: ({ max_X, min_X, max_Y, min_Y, max_Z, min_Z }) =>
     dispatch(fetchData({ max_X, min_X, max_Y, min_Y, max_Z, min_Z })),
+  fetchChart: ({ x_axis, y_axis }) => dispatch(fetchChart({ x_axis, y_axis })),
 });
 
 export default connect(null, mapDispatchToProps)(InputCsv);
