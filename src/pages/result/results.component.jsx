@@ -13,9 +13,10 @@ const ResultPage = ({ history }) => {
   const handleClick = () => {
     history.push("/");
   };
+
   return (
     <div className="result">
-      <Pdf targetRef={ref} filename="results.pdf" scale={0.6}>
+      <Pdf targetRef={ref} filename="results.pdf" x={30} scale={0.8}>
         {({ toPdf }) => (
           <CustomButton inverted onClick={toPdf}>
             Generate PDF

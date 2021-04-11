@@ -64,9 +64,7 @@ const Form1 = ({ history, fetchProject }) => {
           minLength="6"
           maxLength="30"
         />
-        <CustomButton inverted type="submit">
-          Next
-        </CustomButton>
+        <CustomButton type="submit">Next</CustomButton>
       </form>
     </div>
   );

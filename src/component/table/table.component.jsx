@@ -9,7 +9,7 @@ const TableData = ({ project, data }) => {
   const { max_X, min_X, max_Y, min_Y, max_Z, min_Z } = data;
 
   return (
-    <div>
+    <>
       <Table>
         <Thead>
           <Tr>
@@ -50,7 +50,7 @@ const TableData = ({ project, data }) => {
           </Tr>
         </Tbody>
       </Table>
-    </div>
+    </>
   );
 };
 
