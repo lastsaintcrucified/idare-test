@@ -18,6 +18,7 @@ const Form2 = ({ history, project, data }) => {
   // });
   const handleSubmit = () => {
     console.log("Submitted");
+    history.push("/result");
   };
   // const handleChange = (e) => {
   //   const { value, name } = e.target;
@@ -108,15 +109,13 @@ const Form2 = ({ history, project, data }) => {
           label="min_Z"
           allShrink={true}
         />
+        <div className="buttons">
+          <CustomButton onClick={() => history.push("/")} inverted>
+            Back
+          </CustomButton>
+          <CustomButton type="submit">Confirm</CustomButton>
+        </div>
       </form>
-      <div className="buttons">
-        <CustomButton onClick={() => history.push("/")} inverted type="submit">
-          Back
-        </CustomButton>
-        <CustomButton onClick={() => history.push("/result")} type="submit">
-          Confirm
-        </CustomButton>
-      </div>
     </div>
   );
 };

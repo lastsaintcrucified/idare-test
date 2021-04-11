@@ -7,16 +7,15 @@ import "chartkick/chart.js";
 const Chart = ({ chart }) => {
   const chartData = chartConvert(chart);
   return (
-    <div>
+    <div className="chartName">
       <ColumnChart
         data={chartData}
-        width="70vw"
-        height="70vh"
         xtitle="Kp"
         ytitle="X"
         min={585270.709}
         max={585800.436}
         curve={false}
+        width="340px"
       />
     </div>
   );

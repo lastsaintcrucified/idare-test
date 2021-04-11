@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/homepage/hompage.component.jsx";
 import Form2 from "./component/form2/form2.component.jsx";

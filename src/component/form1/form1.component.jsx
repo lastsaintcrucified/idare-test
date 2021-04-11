@@ -15,17 +15,15 @@ const Form1 = ({ history, fetchProject }) => {
     contractor: "",
   });
   const handleSubmit = () => {
-    console.log("Submitted");
+    console.log("data ->", step1);
+    fetchProject(step1);
+    history.push("/form2");
   };
   const handleChange = (e) => {
     const { value, name } = e.target;
     setStep1({ ...step1, [name]: value });
   };
-  const handleClick = () => {
-    console.log("data ->", step1);
-    fetchProject(step1);
-    history.push("/form2");
-  };
+
   const { name, description, client, contractor } = step1;
   return (
     <div className="form1">
@@ -36,6 +34,8 @@ const Form1 = ({ history, fetchProject }) => {
           required
           handleChange={handleChange}
           label="Project Name"
+          minLength="6"
+          maxLength="30"
         />
         <FormInput
           name="description"
@@ -44,6 +44,7 @@ const Form1 = ({ history, fetchProject }) => {
           required
           handleChange={handleChange}
           label="Project Description"
+          minLength="15"
         />
         <FormInput
           name="client"
@@ -51,6 +52,8 @@ const Form1 = ({ history, fetchProject }) => {
           required
           handleChange={handleChange}
           label="Client"
+          minLength="6"
+          maxLength="30"
         />
         <FormInput
           name="contractor"
@@ -58,11 +61,13 @@ const Form1 = ({ history, fetchProject }) => {
           required
           handleChange={handleChange}
           label="Contractor"
+          minLength="6"
+          maxLength="30"
         />
+        <CustomButton inverted type="submit">
+          Next
+        </CustomButton>
       </form>
-      <CustomButton onClick={handleClick} inverted type="submit">
-        Next
-      </CustomButton>
     </div>
   );
 };

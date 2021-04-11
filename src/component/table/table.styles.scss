@@ -1,14 +1,8 @@
-.table {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 td,
@@ -20,4 +14,16 @@ th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.responsiveTable table,
+.responsiveTable thead,
+.responsiveTable tbody,
+.responsiveTable th,
+.responsiveTable td,
+.responsiveTable tr {
+  @media screen and (max-width: 40em) {
+    display: block;
+    width: 320px;
+  }
 }

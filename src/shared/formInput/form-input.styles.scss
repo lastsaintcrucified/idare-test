@@ -9,7 +9,7 @@ $main-color: black;
 @mixin formStyle {
   background: none;
   background-color: white;
-  color: $sub-color;
+  color: $main-color;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
@@ -33,7 +33,7 @@ $main-color: black;
 
 .group {
   position: relative;
-  margin: 45px 0;
+  margin: 10px 0;
   width: 100%;
 
   .form-input-area {

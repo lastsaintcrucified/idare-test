@@ -1,50 +1,55 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import "./table.styles.scss";
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
-const Table = ({ project, data }) => {
+const TableData = ({ project, data }) => {
   const { name, description, client, contractor } = project;
   const { max_X, min_X, max_Y, min_Y, max_Z, min_Z } = data;
 
   return (
-    <div className="table">
-      <div>
-        <h1>Results</h1>
-        <table>
-          <tr>
-            <th>Project Name</th>
-            <th>Project Description</th>
-            <th>Client</th>
-            <th>contractor</th>
-          </tr>
-          <tr>
-            <td>{name}</td>
-            <td>{description}</td>
-            <td>{client}</td>
-            <td>{contractor}</td>
-          </tr>
-        </table>
-        <br />
-        <table>
-          <tr>
+    <div>
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>Project Name</Th>
+            <Th>Project Description</Th>
+            <Th>Client</Th>
+            <Th>contractor</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>{name}</Td>
+            <Td>{description}</Td>
+            <Td>{client}</Td>
+            <Td>{contractor}</Td>
+          </Tr>
+        </Tbody>
+      </Table>
+      <Table>
+        <Thead>
+          <Tr>
             <th>max_X</th>
-            <th>min_X</th>
-            <th>max_Y</th>
-            <th>min_Y</th>
-            <th>max_Z</th>
-            <th>min_Z</th>
-          </tr>
-          <tr>
-            <td>{max_X}</td>
-            <td>{min_X}</td>
-            <td>{max_Y}</td>
-            <td>{min_Y}</td>
-            <td>{max_Z}</td>
-            <td>{min_Z}</td>
-          </tr>
-        </table>
-      </div>
+            <Th>min_X</Th>
+            <Th>max_Y</Th>
+            <Th>min_Y</Th>
+            <Th>max_Z</Th>
+            <Th>min_Z</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>{max_X}</Td>
+            <Td>{min_X}</Td>
+            <Td>{max_Y}</Td>
+            <Td>{min_Y}</Td>
+            <Td>{max_Z}</Td>
+            <Td>{min_Z}</Td>
+          </Tr>
+        </Tbody>
+      </Table>
     </div>
   );
 };
@@ -54,4 +59,4 @@ const mapStateToProps = ({ project, data }) => ({
   data,
 });
 
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps)(TableData);

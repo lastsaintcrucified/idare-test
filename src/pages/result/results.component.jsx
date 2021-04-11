@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import CustomButton from "../../shared/customButton/custom-button.component";
 import Pdf from "react-to-pdf";
 
-import Table from "../../component/table/table.component.jsx";
+import TableData from "../../component/table/table.component.jsx";
 import ChartData from "../../component/chart/chart.component.jsx";
 import "./results.styles.scss";
 
@@ -15,15 +15,17 @@ const ResultPage = ({ history }) => {
   };
   return (
     <div className="result">
-      <Pdf targetRef={ref} filename="results.pdf" scale={0.8}>
+      <Pdf targetRef={ref} filename="results.pdf" scale={0.6}>
         {({ toPdf }) => (
           <CustomButton inverted onClick={toPdf}>
             Generate PDF
           </CustomButton>
         )}
       </Pdf>
-      <div ref={ref}>
-        <Table />
+      <div ref={ref} className="chart">
+        <TableData />
+        <br />
+        <h1>Chart</h1>
         <ChartData />
       </div>
       <div className="btn">
